@@ -32,7 +32,7 @@ jobs:
           tags: |
             ${{ secrets.ACR_LOGIN_SERVER }}/my-app:${{ github.sha }} ${{ secrets.ACR_LOGIN_SERVER }}/my-app:latest
           cache-from: type=gha
-          cache-from: type=gha,mode=max
+          cache-to: type=gha,mode=max
 
       - name: Login to Azure
         uses: azure/login@v1
