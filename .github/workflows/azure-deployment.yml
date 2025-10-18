@@ -30,7 +30,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.ACR_LOGIN_SERVER }}/my-app:${{ github.sha }} ${{ secrets.ACR_LOGIN_SERVER }}/my-app:latest
+            ${{ secrets.ACR_LOGIN_SERVER }}/my-app:${{ github.sha }}
+            ${{ secrets.ACR_LOGIN_SERVER }}/my-app:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
