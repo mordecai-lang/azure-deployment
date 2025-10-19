@@ -27,6 +27,11 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
+      - name: Verify files
+        run: pwd
+             ls -la
+             cat Dockerfile | head -n 5
+
 
       - name: Build and push to ACR
         uses: docker/build-push-action@v6
