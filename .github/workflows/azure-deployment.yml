@@ -24,9 +24,9 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-      - name: Debug ACR LoginServer
-        run: |
-          echo "ACR LOGIN SERVER IS:  ${{ secrets.ACR_LOGIN_SERVER }}"
+      - name: Verify directory structure
+        run: pwd && ls -R
+
       - name: Build and push to ACR
         uses: docker/build-push-action@v6
         with:
