@@ -30,8 +30,8 @@ jobs:
       - name: Build and push to ACR
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./azure-deployment
+          file: ./azure-deployment/Dockerfile
           push: true
           tags: |
             mordecaiowuorcr.azurecr.io/mordecai:latest
