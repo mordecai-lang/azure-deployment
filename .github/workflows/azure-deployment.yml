@@ -11,6 +11,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Verify directory structure
+        run: pwd && ls -R
+
       - name: set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -24,14 +27,12 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-      - name: Verify directory structure
-        run: pwd && ls -R
 
       - name: Build and push to ACR
         uses: docker/build-push-action@v6
         with:
-          context: ./azure-deployment
-          file: ./azure-deployment/Dockerfile
+          context: .
+          file: ./Dockerfile
           push: true
           tags: |
             mordecaiowuorcr.azurecr.io/mordecai:latest
